@@ -1,0 +1,14 @@
+
+<div class="site-wrapper">
+    <!-- loader -->
+    <div class="loading" [hidden]="state.isLoaded" [ngClass]="{ 'loading-bg-blur': state.enableBgBlur }">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- page component -->
+    
+    <!-- dropdown select 2 container -->
+    <div class="select2-dropdown-container"></div>
+    <!-- end dropdown select 2 container -->
+    
+    <router-outlet></router-outlet>  
+</div>

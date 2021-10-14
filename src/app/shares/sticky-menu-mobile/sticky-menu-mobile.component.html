@@ -1,0 +1,40 @@
+<div class="container" style="position: relative;">
+    <div class="sub-menu-mobile-wp" [ngClass]="{'dropdown-active': isMenuToggle}"
+        [ngStyle]="{'display': (isMenuToggle?'block':'none')}">
+        <ul class="h-sub-menu">
+            <ng-container>
+                <li>
+                    <a [routerLink]="['/ui/school']">
+                        Thiết lập trường
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/ui/class-record-book']">
+                        Sổ đầu bài
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/ui/user']">
+                        Tài khoản
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['']" (click)="onSignOut()">
+                        Đăng nhập/Thoát
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['']">
+                        Blog
+                    </a>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</div>
+
+<!-- <dialog-change-pass #dlgChangePass [title]="'leftmenu.ChangePassword' | translate"></dialog-change-pass> -->
