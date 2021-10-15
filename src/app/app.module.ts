@@ -11,6 +11,7 @@ import { AppHttpInterceptor } from "./app-http-interceptor";
 import { AppUtilsService, HttpConnectorService, UserSessionService, AppStateService, AppCacheService } from "./service";
 import { SharesModule } from "./shares/shares.module";
 import { HttpLoaderFactory, } from "./globals";
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { HttpLoaderFactory, } from "./globals";
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    QRCodeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

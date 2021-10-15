@@ -1,4 +1,3 @@
-
 <leftmenu></leftmenu>
 
 <div id="sticky-menu" class="sticky-menu">
@@ -13,16 +12,22 @@
                         <h3 class="box-title">
                             <div>Tạo mã QR</div>
                         </h3>
-                        <form>
+                        <form [formGroup]="createCodeForm">
                             <div class="form-group">
                                 <label for="numberOfCode">Số lượng code QR <label class="text-danger">*</label></label>
-                                <input id="numberOfCode" class="form-control">
+                                <input id="numberOfCode" formControlName="numberOfCode" class="form-control"
+                                    type="number" placeholder="Nhập số lượng"
+                                    [ngClass]="{ 'is-invalid': isSubmited && f.numberOfCode.errors }">
+                                <div class="invalid-feedback" *ngIf="isSubmited && f.numberOfCode.errors">
+                                    <div *ngIf="f.numberOfCode.errors.required">Nhập số lượng code</div>
+                                </div>
                             </div>
                             <div class="bottom-button-area">
                                 <div class="left">
                                 </div>
 
-                                <button class="kin-btn kin-btn-small kin-btn-square kin-btn-outline upload" >
+                                <button class="kin-btn kin-btn-small kin-btn-square kin-btn-outline upload"
+                                    [disabled]="isSubmited && !createCodeForm.valid" (click)="createCode()">
                                     Tạo
                                 </button>
                             </div>
@@ -35,6 +40,13 @@
                         <h3 class="box-title">
                             <div>Các mã QR vừa được tạo</div>
                         </h3>
+                        <div *ngIf="lstCreatedCode.length > 0" style="display: flex; overflow-x: auto;">
+                            <span *ngFor="let code of lstCreatedCode; let i = index" style="display: grid;">
+                                <qrcode  [qrdata]="code.code" [width]="150"
+                                [errorCorrectionLevel]="'M'"></qrcode>
+                                <span style="font-weight: bold;text-align: center;">{{i+1}}</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,106 @@
+<leftmenu></leftmenu>
+
+<div id="sticky-menu" class="sticky-menu">
+    <sticky-menu-mobile></sticky-menu-mobile>
+</div>
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-8 col-sm-12">                    
+                    <div class="form-box">
+                        <h3 class="box-title">
+                            <div class="">Thông tin của bé
+                            </div>
+
+                            <div class="">
+                                <a class="more" href="javascript:void(0)">
+                                    <i class="fa fa-angle-up"></i>
+                                </a>
+                            </div>
+                        </h3>
+
+                        <div>
+                            <form [formGroup]="childForm" *ngIf="isLoaded">
+                                <div class="form-group">
+                                    <label for="childName">Tên bé <label class="text-danger">*</label></label>
+                                    <input id="childName" formControlName="childName" class="form-control"
+                                        type="text" placeholder="" [ngClass]="{ 'is-invalid': isSubmited && f.childName.errors }"/>
+                                    <div class="invalid-feedback" *ngIf="isSubmited && f.childName.errors">
+                                        <div *ngIf="f.childName.errors.required">Nhập Tên bé</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fatherName">Tên bố/mẹ <label class="text-danger">*</label></label>
+                                    <input id="fatherName" formControlName="fatherName" class="form-control"
+                                        type="text" placeholder="" [ngClass]="{ 'is-invalid': isSubmited && f.fatherName.errors }"/>
+                                    <div class="invalid-feedback" *ngIf="isSubmited && f.fatherName.errors">
+                                        <div *ngIf="f.fatherName.errors.required">Nhập Tên bố/mẹ</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fatherPhoneNumber">Số điện thoại bố/mẹ <label class="text-danger">*</label></label>
+                                    <input id="fatherPhoneNumber" formControlName="fatherPhoneNumber" class="form-control"
+                                        type="text" placeholder="" [ngClass]="{ 'is-invalid': isSubmited && f.fatherPhoneNumber.errors }"/>
+                                    <div class="invalid-feedback" *ngIf="isSubmited && f.fatherPhoneNumber.errors">
+                                        <div *ngIf="f.fatherPhoneNumber.errors.required">Nhập số điện thoại bố/mẹ</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fatherEmail">Email bố/mẹ <label class="text-danger">*</label></label>
+                                    <input id="fatherEmail" formControlName="fatherEmail" class="form-control"
+                                        type="text" placeholder="" [ngClass]="{ 'is-invalid': isSubmited && f.fatherEmail.errors }"/>
+                                    <div class="invalid-feedback" *ngIf="isSubmited && f.fatherEmail.errors">
+                                        <div *ngIf="f.fatherEmail.errors.required">Nhập email bố/mẹ</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Địa chỉ <label class="text-danger">*</label></label>
+                                    <input id="address" formControlName="address" class="form-control"
+                                        type="text" placeholder="" [ngClass]="{ 'is-invalid': isSubmited && f.address.errors }"/>
+                                    <div class="invalid-feedback" *ngIf="isSubmited && f.address.errors">
+                                        <div *ngIf="f.address.errors.required">Nhập địa chỉ</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="note">Ghi chú <label class="text-danger">*</label></label>
+                                    <input id="note" formControlName="note" class="form-control"
+                                        type="text" placeholder="" [ngClass]="{ 'is-invalid': isSubmited && f.note.errors }"/>
+                                    <div class="invalid-feedback" *ngIf="isSubmited && f.note.errors">
+                                        <div *ngIf="f.note.errors.required">Nhập ghi chú</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Nhập mật khẩu <label class="text-danger">*</label></label>
+                                    <input id="password" formControlName="password" class="form-control"
+                                        type="text" placeholder="" [ngClass]="{ 'is-invalid': isSubmited && f.password.errors }"/>
+                                    <div class="invalid-feedback" *ngIf="isSubmited && f.password.errors">
+                                        <div *ngIf="f.password.errors.required">Nhập mật khẩu</div>
+                                    </div>
+                                </div>
+                            </form>      
+                            <div class="bottom-button-area">
+                                <div class="left">
+                                </div>
+
+                                <div class="right">
+                                    <button class="kin-btn kin-btn-small kin-btn-square kin-btn-outline upload" 
+                                        [disabled]="isSubmited && !childForm.valid" (click)="saveChildInfor()">
+                                        Lưu
+                                    </button>
+                                </div>
+                            </div>
+                            <div style="align-items: center;text-align: center;" *ngIf="qrCode != 'NEW'">
+                                <qrcode  [qrdata]="qrCode" [width]="200" [errorCorrectionLevel]="'M'"></qrcode>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-4 lstBlog-hide-mobile">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

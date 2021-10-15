@@ -7,7 +7,7 @@
 module.exports = {
     '/api/v1/*': {
         'target': 'http://localhost:5052',
-        'pathRewrite': { '^/api/v1': '/sdb/api/v1' },
+        'pathRewrite': { '^/api/v1': '/childCode/api/v1' },
         'secure': false,
         'logLevel': 'debug',
         'changeOrigin': true,
