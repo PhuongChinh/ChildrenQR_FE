@@ -42,7 +42,7 @@
                         </h3>
                         <div *ngIf="lstCreatedCode.length > 0" style="display: flex; overflow-x: auto;">
                             <span *ngFor="let code of lstCreatedCode; let i = index" style="display: grid;">
-                                <qrcode  [qrdata]="code.code" [width]="150"
+                                <qrcode  [qrdata]="'http://18.236.66.99:4200/ui/child-profile/' + code.code" [width]="150"
                                 [errorCorrectionLevel]="'M'"></qrcode>
                                 <span style="font-weight: bold;text-align: center;">{{i+1}}</span>
                             </span>
