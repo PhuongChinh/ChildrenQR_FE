@@ -6,7 +6,7 @@
  */
 module.exports = {
     '/api/v1/*': {
-        'target': 'http://localhost:5052',
+        'target': 'http://13.250.41.43:5052',
         'pathRewrite': { '^/api/v1': '/childCode/api/v1' },
         'secure': false,
         'logLevel': 'debug',
